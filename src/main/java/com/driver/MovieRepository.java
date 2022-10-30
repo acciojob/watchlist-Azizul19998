@@ -65,9 +65,9 @@ public class MovieRepository {
             if(entry.getValue().equals(name)) {
                 // entry== moviesName here
                 // first delete the movie from movie_DB
-                mapMovie.remove(entry.getKey());
+                if(mapMovie.containsKey(entry.getKey()))  mapMovie.remove(entry.getKey());
                 // now remove the pair from pair_DB
-                mapPair.remove(entry.getKey());
+                if(mapPair.containsKey(entry.getKey()))  mapPair.remove(entry.getKey());
             }
         }
     }
@@ -79,8 +79,8 @@ public class MovieRepository {
             {
                 if(entry.getValue().equals(director))
                 {
-                    mapMovie.remove(entry.getKey());
-                    mapPair.remove(entry.getKey());
+                   if(mapMovie.containsKey(entry.getKey())) mapMovie.remove(entry.getKey());
+                    if(mapPair.containsKey(entry.getKey())) mapPair.remove(entry.getKey());
                 }
             }
             mapDirector.remove(director);
